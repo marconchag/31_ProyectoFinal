@@ -47,7 +47,8 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
         x=total_por_año['Fecha'],
         y=total_por_año['total_accidentes'],
         marker_color='blue',
-        text=total_por_año['porcentaje'].round(2).astype(str) + '%' ,
+        #text=total_por_año['porcentaje'].round(2).astype(str) + '%' ,
+        text=[f'<b>{accidentes:,}'.replace(',', '.') + f'<br> ({porcentaje:.2f}%)</b>' for accidentes, porcentaje in zip(total_por_año['total_accidentes'], total_por_año['porcentaje'])],
         textposition='auto',  # Colocar automáticamente el texto
         name='Total de Accidentes por Año',
         showlegend=False
@@ -77,11 +78,16 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
         #?-----Gráfico barras horizontales : Distribución de tipo de accidente----#
         # Contar el número de accidentes por tipo de accidente
         tipo_accidente_counts = df_agrupado['Tipo accidente'].value_counts()
+        # Calcular el porcentaje de cada tipo de accidente
+        total_accidentes = tipo_accidente_counts.sum()
+        tipo_accidente_porcentaje = (tipo_accidente_counts / total_accidentes) * 100
+
 
         # Crear el gráfico de barras horizontales
         fig = px.bar(x=tipo_accidente_counts.values, 
                 y=tipo_accidente_counts.index, 
                 orientation='h', 
+                text=[f'<b>{accidentes:,}'.replace(',', '.') + f'<br> ({porcentaje:.2f}%)</b>' for accidentes, porcentaje in zip(tipo_accidente_counts.values, tipo_accidente_porcentaje)],
                 title='Distribución de Tipos de Accidente',
                 labels={'index': 'Tipo de Accidente', 'Tipo accidente': 'Número de Accidentes'},
                 color=tipo_accidente_counts.values,
@@ -91,21 +97,29 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
         fig.update_layout(xaxis_title='Número de Accidentes',
                     yaxis_title='Tipo de Accidente',
                     yaxis={'categoryorder': 'total ascending'})
+        # Desactivar la barra de colores continua
+        fig.update_coloraxes(showscale=False)
 
         # Mostrar el gráfico
         st.plotly_chart(fig, use_container_width=True)
     with tpVehiculo:
         #?-----Gráfico barras horizontales : Distribución de tipo de accidente----#
-        # Contar el número de accidentes únicos por tipo de vehículo y ordenar de mayor a menor
-        accidentes_por_vehiculo = df.groupby('Tipo vehiculo')['Expediente'].nunique().reset_index()
-        accidentes_por_vehiculo = accidentes_por_vehiculo.sort_values(by='Expediente', ascending=True)
+# Contar el número de accidentes únicos por tipo de vehículo y ordenar de mayor a menor
+        tpVehiculo_counts = df.groupby('Tipo vehiculo')['Expediente'].nunique().reset_index()
+        tpVehiculo_counts = tpVehiculo_counts.sort_values(by='Expediente', ascending=True)
+
+        # Calcular el porcentaje de cada tipo de vehículo
+        total_accidentes = tpVehiculo_counts['Expediente'].sum()
+        tpVehiculo_counts['porcentaje'] = (tpVehiculo_counts['Expediente'] / total_accidentes) * 100
+
 
         # Crear el gráfico de barras horizontal usando plotly.express
-        fig = px.bar(accidentes_por_vehiculo,
+        fig = px.bar(tpVehiculo_counts,
                     x='Expediente',
                     y='Tipo vehiculo',
                     orientation='h',
-                    text='Expediente',
+                    # text = [f'{accidentes:,}'.replace(',', '.') + f'<br> ({porcentaje:.2f}%)'for accidentes, porcentaje in zip(tpVehiculo_counts['Expediente'], tpVehiculo_counts['porcentaje'])],
+                    text=[f'<b>{accidentes:,}'.replace(',', '.') + f' ({porcentaje:.2f}%)</b>' for accidentes, porcentaje in zip(tpVehiculo_counts['Expediente'], tpVehiculo_counts['porcentaje'])],
                     color='Expediente',
                     color_continuous_scale=px.colors.sequential.Viridis,
                     title='Número de accidentes por tipo de vehículo')
@@ -118,7 +132,8 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
             font=dict(family='Arial', size=12, color='white'),  # Personalizar la fuente
             margin=dict(l=100, r=50, t=80, b=50)  # Ajustar los márgenes
         )
-
+        # Desactivar la barra de colores continua
+        fig.update_coloraxes(showscale=False)
         # Mostrar el gráfico
         st.plotly_chart(fig, use_container_width=True)
 
@@ -171,6 +186,11 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
         
             # Mostrar el gráfico
             st.plotly_chart(fig, use_container_width=True)
+
+
+            
+
+
     with horarios:
         #? ----------Distribucón Accidentes por Horario y Sexo----------# 
         #accidentes por tramo horario y sexo!!!!!!!!!!!!!!!!!!!!!

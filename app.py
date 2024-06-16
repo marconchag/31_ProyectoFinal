@@ -22,7 +22,7 @@ pd.set_option('display.max_columns', None)
 #* --------------------Asignamos la configuracion de la página  ------------------#
 st.set_page_config(**utils.confPage)
 
-#------------------Cargar Datos----------------------#
+#*--------------------Cargar Datos------------------------------------------------#
 # Con el decorador cache_data solo cargamos los datos la primera vez que se carga la página
 @st.cache_data (show_spinner="Cargando Datos...")  # 👈 Add the caching decorator
 def load_data(url):
@@ -33,14 +33,17 @@ st.session_state.df = load_data(r'datos_procesados/accidentes_procesados.csv')
 st.session_state.df_agrupado= load_data(r'datos_procesados/accidentes_procesados_agrupados.csv')
 df = st.session_state.df.copy()
 
-#------------------- Título de la página -------------------#
+
+#*------------------- Título de la página -------------------#
 st.title('Accidentes de tráfico de la Comunidad de Madrid')
 
-# --------------------SIDEBAR----------------------------#
+#* --------------------SIDEBAR----------------------------#
 utils.menu() #llamamos al menu
 
+  #* ------------------ Añadimos los filtros ----------------------------#
 df = utils.filtros(['Sexo', 'Distrito'],df) #llamamos a los filtros
 
+#?--------------------  Expander con el resumen  ----------------------------#
 # Sección desplegable para la conclusión
 with st.expander("Resumen", expanded=True):
     st.write("""
@@ -124,7 +127,7 @@ with st.expander("Resumen", expanded=True):
 
     st.markdown(estilos.generar_tarjetas(datos_tarjetas), unsafe_allow_html=True)
 
-#-------------------------- Grafico por años y meses ---------------------------#
+#?-------------------------- Grafico por años y meses ---------------------------#
 #mostrar grafico de accidentes por años y meses separados
 copia = df.copy()
 # Convertir la columna 'fecha' al formato de fecha adecuado
@@ -159,7 +162,7 @@ y_min = min([min(datos) for datos in datos_por_año])
 y_max = max([max(datos) for datos in datos_por_año])
 
 # Crear una figura con subplots
-fig4 = make_subplots(rows=num_filas, cols=num_columnas, subplot_titles=[f'Año {año}' for año in range(copia.index.min().year, año_actual + 1)],
+fig = make_subplots(rows=num_filas, cols=num_columnas, subplot_titles=[f'Año {año}' for año in range(copia.index.min().year, año_actual + 1)],
                     vertical_spacing=0.15)
 
 # Definir una paleta de colores
@@ -184,30 +187,27 @@ for i, año in enumerate(range(copia.index.min().year, año_actual + 1)):
     columna = i % num_columnas + 1
     
     # Agregar el gráfico a la subtrama correspondiente
-    fig4.add_trace(
+    fig.add_trace(
         go.Scatter(x=total_por_mes['mes'], y=total_por_mes['cantidad'], name=f'Año {año}', line=dict(color=color)),
         row=fila,
         col=columna)
 
 # Establecer el mismo rango en el eje y para todos los subgráficos
-fig4.update_yaxes(range=[y_min, y_max])
+fig.update_yaxes(range=[y_min, y_max])
 
 # Actualizar el diseño de las subtramas
-fig4.update_layout(height=1000, width=1300, showlegend=False, title='Accidentes por mes en cada año')
+fig.update_layout(height=720,  showlegend=False, title='Accidentes por mes en cada año')
 
 # Mostrar la figura
-st.plotly_chart(fig4, use_container_width=True)
+st.plotly_chart(fig, use_container_width=True)
 
-#--------------------CONTENIDO---------------------------#
+  #? -------------------- Mostramos las pestañas ----------------------------#
+# Crear pestañas
+tpVia, distritos = st.tabs(["Tipo de vía", "Distritos"])
 # Aplicar estilos CSS personalizados
 estilos.pestañas()
 
-# Crear pestañas
-tab1, tab2 = st.tabs(["Tipo de vía", "Distritos"])
-
-# Contenido de la pestaña Vehículos
-#TAB 6: TIPO DE VIA
-with tab1:
+with tpVia:
 
     col1, col2 = st.columns(2)
 #nube de palabras
@@ -248,56 +248,64 @@ with tab1:
         # Crear el WordCloud con la máscara y configuraciones adicionales
         wordcloud2 = (WordCloud(background_color='white', mask=mascara, contour_color='steelblue', contour_width=2).generate_from_frequencies(calles_dict)).to_array()
         st.image(wordcloud2)
-
-
-# Contenido de la pestaña Distritos
-with tab2:
+with distritos:
+    #? -------------------- Gráfico Barras: Número de accidentes por distrito ----------------------------#
     st.subheader("Número de accidentes por Distrito")
     
     # Contar el número de accidentes por Distrito
-    distrito_counts = st.session_state.df['Distrito'].value_counts()
+    accidentes_totales = st.session_state.df_agrupado.shape[0]
+    distrito_counts = df['Distrito'].value_counts()
+    distrito_porcentajes = [round((accidentes / accidentes_totales) * 100,2) for accidentes in distrito_counts]
+
 
     # Crear el gráfico de barras
-    fig2 = px.bar(y=distrito_counts.index,
-                x=distrito_counts.values,
+    fig = px.bar(x=distrito_counts.values,
+                y=distrito_counts.index,
+                text=[f'<b>{accidentes:,}'.replace(',', '.') + f' ({valor}%)</b>' for accidentes, valor in zip(distrito_counts.values, distrito_porcentajes)],
                 orientation='h',
                 title='Frecuencia de accidentes por Distrito',
-                color=distrito_counts.values,
+                color=distrito_porcentajes,
                 color_continuous_scale='Viridis',
                 labels={'color': ''})
 
-    fig2.update_layout(yaxis_title='Distrito',
+    fig.update_layout(yaxis_title='Distrito',
                     xaxis_title='Número de accidentes',
                     yaxis={'categoryorder': 'total ascending'},
-                    height=600)
+                    height=600,
+                    showlegend=False)
+    # Desactivar la barra de colores continua
+    fig.update_coloraxes(showscale=False)
 
-    st.plotly_chart(fig2, use_container_width=True)
+    fig.update_layout( height=700, width=1100,title_text=f'Accidentes Totales: {accidentes_totales:,}'.replace(',', '.'))
+
+    st.plotly_chart(fig, )
 
     
 # --------------- MAPA DE ACCIDENTES POR DISTRITOS -----------------#
     st.subheader("Mapa de accidentes por distritos")
     
     # Crear un gráfico de dispersión en el mapa con colores por Distrito
-    fig3 = px.scatter_mapbox(st.session_state.df, lat="Latitud", lon="Longitud", hover_name="Expediente",
-                            color="Distrito", zoom=10, color_discrete_sequence=px.colors.qualitative.Plotly)
+    fig = px.scatter_mapbox(st.session_state.df, lat="Latitud", lon="Longitud", hover_name="Distrito",
+                            color="Distrito", zoom=2, color_discrete_sequence=px.colors.qualitative.Plotly)
 
     # Personalizar la apariencia del mapa
-    fig3.update_layout(mapbox_style="carto-positron", 
+    fig.update_layout(mapbox_style="carto-positron", 
                     mapbox_zoom=10, 
                     mapbox_center = {"lat": 40.4167, "lon": -3.70325})
-    fig3.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
     
-    st.plotly_chart(fig3, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True)
 
-#with open('accidentes_Distrito.html', 'r', encoding='utf-8') as file:
-#   html_code = file.read()
-#st.components.v1.html(html_code, width=800, height=600)
 
-# Cargar el gráfico HTML
-#with open("treemap.html", "r", encoding="utf-8") as file:
-#   html_code = file.read()
 
-# Mostrar el gráfico HTML en Streamlit
-#st.components.v1.html(html_code, width=800, height=600)
+
+
+
+
+
+
+
+
+
 
 
