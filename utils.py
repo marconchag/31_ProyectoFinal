@@ -19,6 +19,7 @@ def menu():
     st.sidebar.page_link("pages/implicados.py", label="Implicados")
     st.sidebar.page_link("pages/datos.py", label="Datos")
     st.sidebar.page_link("pages/azure_api.py", label="Predicción Azure")
+    st.sidebar.page_link("pages/lesividad_azure.py", label="Lesividad Azure")
     st.sidebar.page_link("pages/predicciones.py", label="Predicción Pycaret")
     st.sidebar.markdown("""
     ---

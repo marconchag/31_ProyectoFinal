@@ -1,4 +1,4 @@
-
+.venv/*
 __pycache__/
 00_ProcesamientoDatos_completo.ipynb
 modelos/*

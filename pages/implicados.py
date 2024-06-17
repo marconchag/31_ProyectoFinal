@@ -198,7 +198,6 @@ if 'df' in st.session_state :
 
         # Mostrar la figura en Streamlit
         st.plotly_chart(fig, use_container_width=True)
-
     with positivos:
         #? ---------------- Mapa de Calor : Implicados positivos en Alcohol y Drogas  ------------------#
         # la columna 'hora' la convertimos en formato datetime

@@ -41,26 +41,24 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
     total_por_año['porcentaje'] = (total_por_año['total_accidentes'] / total_por_año['total_accidentes'].sum()) * 100
     
     # Graficar utilizando Plotly Express
-    fig = go.Figure()
-    # Crear el gráfico de barras
-    fig.add_trace(go.Bar(
+    fig = px.bar(
         x=total_por_año['Fecha'],
         y=total_por_año['total_accidentes'],
-        marker_color='blue',
+        color = total_por_año['total_accidentes'],
+        color_continuous_scale=px.colors.sequential.Viridis,
         #text=total_por_año['porcentaje'].round(2).astype(str) + '%' ,
         text=[f'<b>{accidentes:,}'.replace(',', '.') + f'<br> ({porcentaje:.2f}%)</b>' for accidentes, porcentaje in zip(total_por_año['total_accidentes'], total_por_año['porcentaje'])],
-        textposition='auto',  # Colocar automáticamente el texto
-        name='Total de Accidentes por Año',
-        showlegend=False
-    ))
+        #textposition='auto',  # Colocar automáticamente el texto
+        title='Total de Accidentes por Año'
+    )
     # Actualizar el diseño del gráfico
     fig.update_layout(
         title_text="Total de Accidentes por Año",
-        xaxis_title="Añod",
-        yaxis_title="Total de Accidentes",
-        showlegend=False
-        
+        xaxis_title="Año",
+        yaxis_title="Total de Accidentes"
     )
+    # Desactivar la barra de colores continua
+    fig.update_coloraxes(showscale=False)
     st.plotly_chart(fig, use_container_width=True)
 
     #? -------------------- Mostramos las pestañas ----------------------------#
@@ -169,6 +167,8 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
         total_por_dia_horario_lesividad = df.groupby(['Día semana', 'Tramo horario', 'Lesividad'])['Expediente'].nunique().reset_index(name='cantidad')
         total_por_dia_horario_lesividad.rename(columns={'Lesividad': 'Tipo Lesividad','Tramo horario':'Horario','Día semana':'Día'}, inplace=True)
 
+        #* Convertir la columna 'Día' a tipo categórico con el orden específico
+        dias_semana = ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo']
         # Crear un gráfico por cada tramo horario
         for horario in total_por_dia_horario_lesividad['Horario'].unique():
             # Filtrar los datos por tramo horario
@@ -179,6 +179,7 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
                     title=f'Accidentes y tipo de lesividad por día de la semana en el tramo horario {horario}',
                     labels={'Día semana': 'Día de la semana', 'cantidad': 'Cantidad de Accidentes'},
                     category_orders={'Día semana': ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo']},
+                    category_orders={'Día': dias_semana},
                     color_discrete_sequence=px.colors.sequential.Viridis)
         
             # Ajustar diseño
