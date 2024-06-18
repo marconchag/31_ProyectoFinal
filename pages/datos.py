@@ -25,7 +25,7 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
     st.title("Datos usados en el análisis")
 
     #--------------------  BARRA LATERAL  ----------------------------#
-    df = utils.filtros(['Año','Día semana','Distrito','Tipo accidente','Tramo horario', 'Estado meteorológico'],df)
+    df = utils.filtros([],df)
     # df_agrupado = utils.filtros(['Año','Día semana','Distrito','Tipo accidente','Tramo horario', 'Estado meteorológico'],df_agrupado)
 
     #--------------------------DFS---------------------------#
