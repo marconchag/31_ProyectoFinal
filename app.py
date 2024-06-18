@@ -1,10 +1,3 @@
-import os
-import platform
-
-# Ejecuta setup.sh si el sistema operativo no es Windows
-if platform.system() != 'Windows':
-    os.system('bash setup.sh')
-
 # -------------------IMPORTACIONES----------------------#
 import streamlit as st
 # Importamos componentes
