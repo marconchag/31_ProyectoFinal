@@ -7,12 +7,6 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import plotly.io as pio
-import locale
-pio.templates.default = "plotly_dark"
-# Establecer la localización a español
-locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
-pd.set_option('display.max_columns', None)
 
 
 #* --------------------Asignamos la configuracion de la página  ------------------#
