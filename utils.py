@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import base64
 
 #* --------------------Asignamos la configuracion de la página para utilizarlo ponemos ------------------ 
 #* st.set_page_config(**confPage) ** Sirven para desempaquetar un diccionario como clave y valor ------------------#

@@ -9,10 +9,10 @@ from plotly.subplots import make_subplots
 import plotly.io as pio
 import plotly.express as px
 from wordcloud import WordCloud, STOPWORDS   
-import locale
 import numpy as np
 from PIL import Image
 import calendar
+
 
 pio.templates.default = "plotly_dark"
 
@@ -28,18 +28,17 @@ def load_data(url):
         df = pd.read_csv(url)
         return df
 
+#* --------------------Cargar los datos ----------------------------#
 st.session_state.df = load_data(r'datos_procesados/accidentes_procesados.csv')
 st.session_state.df_agrupado= load_data(r'datos_procesados/accidentes_procesados_agrupados.csv')
 df = st.session_state.df.copy()
 
-
 #*------------------- Título de la página -------------------#
 st.title('Accidentes de tráfico de la Comunidad de Madrid')
-
 #* --------------------SIDEBAR----------------------------#
 utils.menu() #llamamos al menu
 
-  #* ------------------ Añadimos los filtros ----------------------------#
+#* ------------------ Añadimos los filtros ----------------------------#
 df = utils.filtros(['Sexo', 'Distrito'],df) #llamamos a los filtros
 
 #?--------------------  Expander con el resumen  ----------------------------#
