@@ -15,8 +15,7 @@ from PIL import Image
 import calendar
 
 pio.templates.default = "plotly_dark"
-# Establecer la localización a español
-locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+
 pd.set_option('display.max_columns', None) 
 
 #* --------------------Asignamos la configuracion de la página  ------------------#
