@@ -178,7 +178,6 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
             fig = px.bar(datos_horario, x='Día', y='cantidad', color='Tipo Lesividad',
                     title=f'Accidentes y tipo de lesividad por día de la semana en el tramo horario {horario}',
                     labels={'Día semana': 'Día de la semana', 'cantidad': 'Cantidad de Accidentes'},
-                    category_orders={'Día semana': ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo']},
                     category_orders={'Día': dias_semana},
                     color_discrete_sequence=px.colors.sequential.Viridis)
         

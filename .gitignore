@@ -3,3 +3,4 @@ __pycache__/
 00_ProcesamientoDatos_completo.ipynb
 modelos/*
 .env
+logs.log
