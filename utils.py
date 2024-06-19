@@ -17,10 +17,9 @@ def menu():
     st.sidebar.image(r'img/ComMadrid.png',use_column_width=True)
     st.sidebar.page_link("pages/datos.py", label="Datos")
     st.sidebar.page_link("app.py", label="Resumen")
-    st.sidebar.page_link("pages/accidentes.py", label="Accidentes")
     st.sidebar.page_link("pages/implicados.py", label="Implicados")
-
-    #Dejamos comentado el enlace a la página de predicciones hasta que tengamos los puntos de Azure
+    st.sidebar.page_link("pages/accidentes.py", label="Accidentes")
+    #!Dejamos comentado el enlace a la página de predicciones hasta que tengamos los puntos de conexión de Azure
     #st.sidebar.page_link("pages/predicciones.py", label="Predicción")
     st.sidebar.markdown("""
     ---
