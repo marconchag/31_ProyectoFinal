@@ -12,8 +12,7 @@ from wordcloud import WordCloud, STOPWORDS
 import numpy as np
 from PIL import Image
 import calendar
-import locale
-locale.setlocale(locale.LC_TIME, 'es_ES')
+from babel.dates import get_month_names , format_date
 
 
 pio.templates.default = "plotly_dark"
@@ -67,7 +66,8 @@ with st.expander("Resumen", expanded=True):
     mes_con_menos_accidentes = accidentes_por_mes.idxmin()
 
     # Convertir el número del mes a nombre
-    mes_con_menos_accidentes_nombre = calendar.month_name[mes_con_menos_accidentes]
+    meses = get_month_names(locale='es')
+    mes_con_menos_accidentes_nombre = meses[mes_con_menos_accidentes]
 
     # Tipo de accidente predominante
     tipo_accidente_predominante = df['Tipo accidente'].mode()[0]
@@ -178,7 +178,8 @@ for i, año in enumerate(range(copia.index.min().year, año_actual + 1)):
     total_por_mes = copia_año.resample('M')['Expediente'].nunique().reset_index(name='cantidad')
     
     # Obtener el nombre del mes en español
-    total_por_mes['mes'] = total_por_mes['Fecha'].dt.strftime('%B')
+    # total_por_mes['mes'] = total_por_mes['Fecha'].dt.strftime('%B')
+    total_por_mes['mes'] = total_por_mes['Fecha'].dt.month.apply(lambda x: format_date(pd.Timestamp(year=2020, month=x, day=1), format='MMMM', locale='es'))
     
     # Seleccionar un color de la paleta para este año
     color = palette[i % len(palette)]
@@ -202,7 +203,7 @@ fig.update_layout(height=720,  showlegend=False, title='Accidentes por mes en ca
 # Mostrar la figura
 st.plotly_chart(fig, use_container_width=True)
 
-  #? -------------------- Mostramos las pestañas ----------------------------#
+#? -------------------- Mostramos las pestañas ----------------------------#
 # Crear pestañas
 tpVia, distritos = st.tabs(["Tipo de vía", "Distritos"])
 # Aplicar estilos CSS personalizados

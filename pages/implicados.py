@@ -7,6 +7,7 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+from babel.dates import format_date
 
 
 #* --------------------Asignamos la configuracion de la página  ------------------#
@@ -42,7 +43,7 @@ if 'df' in st.session_state :
     total_por_año_mes = df.groupby([df['Fecha'].dt.year.rename('año'), 
                                     df['Fecha'].dt.month.rename('mes')]).size().reset_index(name='cantidad de implicados')
     #Convertir el número de mes en un objeto datetime
-    total_por_año_mes['mes'] = pd.to_datetime(total_por_año_mes['mes'], format='%m').dt.strftime('%B')
+    total_por_año_mes['mes'] = pd.to_datetime(total_por_año_mes['mes'], format='%m').dt.month.apply(lambda x: format_date(pd.Timestamp(year=2020, month=x, day=1), format='MMMM', locale='es'))
 
     #Graficar utilizando Plotly Express
     fig = px.line(total_por_año_mes, x='mes', y='cantidad de implicados', color='año',
@@ -75,28 +76,25 @@ if 'df' in st.session_state :
     estilos.pestañas()
 
     with edades:
+                # Definir el orden de los grupos de edad
+        edad_order = ['0-17', '18-29', '30-39', '40-49', '50-59', '60-64', '65-69', '70-74', '+74']
         #? -------------------- Gráfico distribución por lesividad y grupo edad ----------------------------#
         # Agrupar por tipo de lesividad y grupo de edad y contar las ocurrencias
         total_por_Lesividad_y_edad = df[df['Lesividad'].isin(['Grave', 'Fallecido'])].groupby(['Lesividad', 'Edad']).size().reset_index(name='cantidad')
+
 
         # Crear gráfico de barras apiladas
         fig = px.bar(total_por_Lesividad_y_edad, x='Edad', y='cantidad', color='Lesividad',
                     title='Distribución de tipo de lesividad por grupo de edad',
                     labels={'Edad': 'Grupo de Edad', 'cantidad': 'Cantidad de Accidentes'},
                     barmode='stack', 
+                    category_orders={'Edad': edad_order},
                     color_discrete_sequence=px.colors.sequential.Viridis)
 
         # Mostrar la figura
         st.plotly_chart(fig, use_container_width=True)
 
         #? -------------------- Gráfico distribución de edades por lesividad ----------------------------#
-
-        # Definir el orden de los grupos de edad
-        edad_order = ['0-17', '18-29', '30-39', '40-49', '50-59', '60-64', '65-69', '70-74', '+74']
-
-        # Convertir la columna Edad a tipo categórico con el orden específico
-        df['Edad'] = pd.Categorical(df['Edad'], categories=edad_order, ordered=True)
-
         # Crear el boxplot interactivo con Plotly Express
         fig = px.box(
             df, 
