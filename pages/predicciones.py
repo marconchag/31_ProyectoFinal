@@ -100,8 +100,6 @@ else:
         # Predicción con Azure
             if azure_result is not None:
                 st.write("Predicción de accidentes con Azure:", str(azure_result))
-
-
 # Predicción de lesividad
 st.title("Seleccione los factores para predecir la lesividad:")
 col1, col2, col3 = st.columns(3)
@@ -126,14 +124,11 @@ with col3:
     Horario = st.selectbox('Tramo horario', options=['Seleccione una opción'] + list(df['Tramo horario'].unique()))
     Tipo_vehiculo = st.selectbox('Tipo vehiculo', options=['Seleccione una opción'] + list(df['Tipo vehiculo'].unique()))
 
-
 if st.button('Predecir Lesividad con PyCaret'):
     st.write("Realizando la predicción... Esto puede tomar unos momentos.")
 
     col1, col2 = st.columns(2)
     with col1:
-
-
             input_data = pd.DataFrame({
                 'Expediente': [0],
                 'Fecha': [''],
@@ -157,7 +152,6 @@ if st.button('Predecir Lesividad con PyCaret'):
             })
             prediction_pycaret = predict_lesividad_pycaret(input_data)
             st.write(f'La lesividad podría ser {prediction_pycaret}')
-
     with col2:
             data = {
                 "input_data": {
