@@ -13,7 +13,7 @@ import numpy as np
 from PIL import Image
 import calendar
 import locale
-locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+locale.setlocale(locale.LC_TIME, 'es_ES')
 
 
 pio.templates.default = "plotly_dark"
