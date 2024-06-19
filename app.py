@@ -205,7 +205,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 #? -------------------- Mostramos las pestañas ----------------------------#
 # Crear pestañas
-tpVia, distritos = st.tabs(["Tipo de vía", "Distritos"])
+tpVia, distritos, correlacion = st.tabs(["Tipo de vía", "Distritos", "Correlación"])
 # Aplicar estilos CSS personalizados
 estilos.pestañas()
 
@@ -297,7 +297,8 @@ with distritos:
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
     
     st.plotly_chart(fig, use_container_width=True)
-
+with correlacion:   
+    st.image("img/correlacion.png", use_column_width=True)
 
 
 
