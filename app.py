@@ -12,6 +12,8 @@ from wordcloud import WordCloud, STOPWORDS
 import numpy as np
 from PIL import Image
 import calendar
+import locale
+locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 
 
 pio.templates.default = "plotly_dark"
@@ -81,10 +83,11 @@ with st.expander("Resumen", expanded=True):
 
     # Accidentes por género
     accidentes_por_genero = df['Sexo'].value_counts(normalize=True).mul(100).round(1).astype(str) + '%'
-    porcentaje_hombres = accidentes_por_genero['Hombre']
+    genero_mayor_accidentes = df['Sexo'].value_counts().idxmax()
+    porcentaje_hombres = f'{accidentes_por_genero[genero_mayor_accidentes]}{genero_mayor_accidentes}'
 
     # Días con más accidentes
-    dias_mas_accidentes = df['Tipo día'].mode()[0]
+    dia_mas_accidentes = df['Día semana'].mode()[0]
 
     # Gravedad de los accidentes
     gravedad_predominante = df['Lesividad'].mode()[0]
@@ -113,8 +116,8 @@ with st.expander("Resumen", expanded=True):
         "Distrito con más Accidentes": distrito_con_mas_accidentes,
         "Vehículo más Involucrado": vehiculo_mas_involucrado,
         "Horario pico de Accidentes": horario_pico_accidentes,
-        "Accidentes por Género": porcentaje_hombres,
-        "Días con más Accidentes": dias_mas_accidentes,
+        "Género con más Accidentes": porcentaje_hombres,
+        "Día con más Accidentes": dia_mas_accidentes,
         "Gravedad de los Accidentes": gravedad_predominante,
         "Grupo Edad más Afectada": grupo_edad_mas_afectado,
         "Porcentaje de Fallecidos": f"{porcentaje_fallecidos_total:.2f}%",
