@@ -26,7 +26,7 @@ def menu():
     ---
     """)
 
-def filtros(filtros, df):
+def filtros(filtros, df, df_agrupado=None):
     #--------------------  BARRA LATERAL  ----------------------------#
     # Crear la barra lateral con filtros
     for columna in filtros:
@@ -41,9 +41,17 @@ def filtros(filtros, df):
                 step=1
             )
             df = df[(df['Fecha'].dt.year >= años_seleccionados[0]) & (df['Fecha'].dt.year <= años_seleccionados[1])]
+            if df_agrupado is not None:
+                df_agrupado['Fecha'] = pd.to_datetime(df_agrupado['Fecha'])
+                df_agrupado = df_agrupado[(df_agrupado['Fecha'].dt.year >= años_seleccionados[0]) & (df_agrupado['Fecha'].dt.year <= años_seleccionados[1])]
         else:
             opciones = df[columna].unique()
             seleccion = st.sidebar.multiselect(f'{columna}', opciones, opciones)
             if seleccion:
-                df = df[df[columna].isin(seleccion)]
-    return df
+                    df = df[df[columna].isin(seleccion)]
+                    if df_agrupado is not None:
+                        df_agrupado = df_agrupado[df_agrupado[columna].isin(seleccion)]
+    if df_agrupado is not None:
+        return df, df_agrupado
+    else:   
+        return df 

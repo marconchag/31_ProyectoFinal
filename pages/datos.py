@@ -14,8 +14,14 @@ st.set_page_config(**utils.confPage)
 
 # Verificar si los datos están en la sesión
 if 'df' in st.session_state and 'df_agrupado' in st.session_state:
-    # SIDEBAR
-    utils.menu()
+    df = st.session_state.df.copy()
+    df_agrupado = st.session_state.df_agrupado.copy()
+
+    #* --------------------SIDEBAR ------------------#
+    utils.menu() #   👈
+
+    #* --------------------Filtros ------------------#
+    df, df_agrupado = utils.filtros(['Año','Tipo accidente','Tramo horario', 'Estado meteorológico','Distrito'],df,df_agrupado)
 
     # Mostrar el botón de descarga para el DataFrame de Implicados
     st.subheader("Data frame Implicados")
@@ -30,7 +36,7 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
                     '<i class="fas fa-download"></i> Descargar CSV Implicados</a>',
                     unsafe_allow_html=True)
     
-    st.write(st.session_state.df)
+    st.write(df)
 
     # Mostrar el botón de descarga para el DataFrame de Accidentes
     st.subheader("Data frame Accidentes")
@@ -45,4 +51,4 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
                     '<i class="fas fa-download"></i> Descargar CSV Accidentes</a>',
                     unsafe_allow_html=True)
     
-    st.write(st.session_state.df_agrupado)
+    st.write(df_agrupado)

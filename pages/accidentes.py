@@ -25,8 +25,7 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
     utils.menu() #   👈
 
     #* --------------------Filtros ------------------#
-    df = utils.filtros(['Año','Día semana','Distrito','Tipo accidente','Tramo horario', 'Estado meteorológico'],df)
-
+    df, df_agrupado = utils.filtros(['Año','Tipo accidente','Tramo horario', 'Estado meteorológico','Distrito'],df,df_agrupado)
 
     #?--------------------  Tarjeta principal  ----------------------------#
     accidentes = df_agrupado.shape[0]
@@ -39,7 +38,8 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
     # Agrupar por año y contar las ocurrencias
     total_por_año = df_agrupado.groupby(df_agrupado['Fecha'].dt.year)['Expediente'].nunique().reset_index(name='total_accidentes')
     total_por_año['porcentaje'] = (total_por_año['total_accidentes'] / total_por_año['total_accidentes'].sum()) * 100
-    
+    # Nos aseguramos de que la columna fecha se trate como categórica y así no aparezcan decimales
+    total_por_año['Fecha'] = total_por_año['Fecha'].astype(str)
     # Graficar utilizando Plotly Express
     fig = px.bar(
         x=total_por_año['Fecha'],
@@ -70,7 +70,6 @@ if 'df' in st.session_state and 'df_agrupado' in st.session_state:
                                         "Clima"])
     # CSS en las pestañas
     estilos.pestañas()
-
 
     with tpAccidente:
         #?-----Gráfico barras horizontales : Distribución de tipo de accidente----#
