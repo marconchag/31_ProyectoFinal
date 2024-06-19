@@ -22,14 +22,23 @@ Este proyecto tiene como objetivo analizar los accidentes de tráfico en Madrid 
   - `01_Graficos.ipynb`: Visualizaciones exploratorias.
   - `02_pycaret_Accidentes.ipynb`: Modelado predictivo para accidentes.
   - `02_pycaret_Lesividad.ipynb`: Modelado predictivo para la lesividad.
-
+    
+- **Paginas**
+  - `pages`: Contiene las páginas en nuestra aplicación Streamlit.
+  - 
 - **Aplicación**
   - `app.py`: Aplicación Streamlit para interactuar con los datos y modelos.
   - `estilos.py`: Estilos personalizados para la aplicación.
   - `utils.py`: Funciones utilitarias.
-
-## Fuente de datos
   - `app.py`: Aplicación Streamlit para interactuar con los datos y modelos.
+    
+## Fuente de datos
+  -  https://accidentesmadrid.streamlit.app/ Nuestra app de Streamlit.
+  -  Los datos de los distritos provienen del "Portal web del Ayuntamiento de Madrid" . "https://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=33cb30c367e78410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default"
+  -  Los datos acerca de la latitud y longitud provienen de "Geodata"
+  -  Para Streamlit https://docs.streamlit.io/
+  -  https://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=b3c41f3cf6a6c410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD
+  
 
 ## Requisitos
 
