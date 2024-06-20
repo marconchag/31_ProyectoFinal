@@ -73,6 +73,9 @@ if 'df' in st.session_state :
             return int(result[0])
         except urllib.error.HTTPError as error:
             return f'Error en la solicitud a la API de Azure {str(error.code)} - {error.info()} '
+        except Exception as e:
+
+            return {'Predicción Azure no implementada'}
         
     #? -------------------- Azure Lesividad : Clasificación ----------------#
     def lesividad_azure(input_data):
@@ -106,6 +109,9 @@ if 'df' in st.session_state :
                 return result[0]
         except urllib.error.HTTPError as error:
             return f'Error en la solicitud a la API de Azure {str(error.code)} - {error.info()} '
+        except Exception as e:
+
+            return {'Predicción Azure no implementada'}
     # Título de la predicción de accidentes
     st.subheader("Accidentes posibles:")
     # Elementos interactivos para la predicción de accidentes
