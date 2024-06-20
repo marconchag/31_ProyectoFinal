@@ -28,7 +28,7 @@ Este proyecto tiene como objetivo analizar los accidentes de tráfico en Madrid 
 - **Paginas**
   - `pages`: Contiene las páginas en nuestra aplicación Streamlit.
     
- - **Imágenes*
+ - **Imágenes**
   - `img`: Contiene las imágenes utilizadas.
     
 - **Aplicación**
