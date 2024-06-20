@@ -2656,3 +2656,615 @@ pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2'
 2024-06-20 23:04:43,332:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
 2024-06-20 23:04:51,164:INFO:Initializing load_model()
 2024-06-20 23:04:51,165:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:08:22,225:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-06-20 23:08:22,225:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-06-20 23:08:22,226:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-06-20 23:08:22,226:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-06-20 23:08:29,083:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2024-06-20 23:08:32,797:INFO:Initializing load_model()
+2024-06-20 23:08:32,798:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:09:02,492:INFO:Initializing load_model()
+2024-06-20 23:09:02,492:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:09:06,170:INFO:Initializing load_model()
+2024-06-20 23:09:06,170:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:09:07,182:INFO:Initializing load_model()
+2024-06-20 23:09:07,182:INFO:load_model(model_name=modelos/modelo_lesividad, platform=None, authentication=None, verbose=True)
+2024-06-20 23:09:07,388:WARNING:c:\Cursos\BootCampData\31_ProyectoFinal\.venv\Lib\site-packages\pycaret\internal\pipeline.py:148: UserWarning:
+
+Version mismatch:
+current: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.25.0', 'ipywidgets': '8.1.3', 'tqdm': '4.66.4', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.4', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.4.0', 'numba': '0.60.0', 'requests': '2.32.3', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.23.0', 'ipywidgets': '8.1.2', 'tqdm': '4.66.2', 'numpy': '1.26.3', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '1.1.3', 'imblearn': '0.12.2', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.1', 'requests': '2.31.0', 'matplotlib': '3.8.4', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.21.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+
+
+2024-06-20 23:09:07,454:INFO:Initializing predict_model()
+2024-06-20 23:09:07,454:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x00000218549D6750>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Latitud', 'Longitud',
+                                             'Positivo alcohol',
+                                             'Positivo droga'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Expediente', 'Fecha',
+                                             'Día semana', 'Tipo día'...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Expediente', 'Fecha', 'Hora',
+                                             'Calle'],
+                                    transformer=TargetEncoder(cols=['Expediente',
+                                                                    'Fecha',
+                                                                    'Hora',
+                                                                    'Calle'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('actual_estimator',
+                 KNeighborsClassifier(n_jobs=-1, n_neighbors=19,
+                                      weights='distance'))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x000002183B1D37E0>)
+2024-06-20 23:09:07,454:INFO:Checking exceptions
+2024-06-20 23:09:07,454:INFO:Preloading libraries
+2024-06-20 23:09:07,455:INFO:Set up data.
+2024-06-20 23:09:07,466:INFO:Set up index.
+2024-06-20 23:09:32,015:INFO:Initializing load_model()
+2024-06-20 23:09:32,015:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:09:38,884:INFO:Initializing load_model()
+2024-06-20 23:09:38,885:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:09:39,873:INFO:Initializing load_model()
+2024-06-20 23:09:39,874:INFO:load_model(model_name=modelos/modelo_lesividad, platform=None, authentication=None, verbose=True)
+2024-06-20 23:09:40,030:WARNING:c:\Cursos\BootCampData\31_ProyectoFinal\.venv\Lib\site-packages\pycaret\internal\pipeline.py:148: UserWarning:
+
+Version mismatch:
+current: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.25.0', 'ipywidgets': '8.1.3', 'tqdm': '4.66.4', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.4', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.4.0', 'numba': '0.60.0', 'requests': '2.32.3', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.23.0', 'ipywidgets': '8.1.2', 'tqdm': '4.66.2', 'numpy': '1.26.3', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '1.1.3', 'imblearn': '0.12.2', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.1', 'requests': '2.31.0', 'matplotlib': '3.8.4', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.21.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+
+
+2024-06-20 23:09:40,086:INFO:Initializing predict_model()
+2024-06-20 23:09:40,086:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x0000021854774C50>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Latitud', 'Longitud',
+                                             'Positivo alcohol',
+                                             'Positivo droga'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Expediente', 'Fecha',
+                                             'Día semana', 'Tipo día'...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Expediente', 'Fecha', 'Hora',
+                                             'Calle'],
+                                    transformer=TargetEncoder(cols=['Expediente',
+                                                                    'Fecha',
+                                                                    'Hora',
+                                                                    'Calle'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('actual_estimator',
+                 KNeighborsClassifier(n_jobs=-1, n_neighbors=19,
+                                      weights='distance'))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x000002183B1D34C0>)
+2024-06-20 23:09:40,086:INFO:Checking exceptions
+2024-06-20 23:09:40,086:INFO:Preloading libraries
+2024-06-20 23:09:40,087:INFO:Set up data.
+2024-06-20 23:09:40,096:INFO:Set up index.
+2024-06-20 23:09:59,266:INFO:Initializing load_model()
+2024-06-20 23:09:59,266:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:10:02,352:INFO:Initializing load_model()
+2024-06-20 23:10:02,352:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:10:03,538:INFO:Initializing load_model()
+2024-06-20 23:10:03,538:INFO:load_model(model_name=modelos/modelo_lesividad, platform=None, authentication=None, verbose=True)
+2024-06-20 23:10:03,698:WARNING:c:\Cursos\BootCampData\31_ProyectoFinal\.venv\Lib\site-packages\pycaret\internal\pipeline.py:148: UserWarning:
+
+Version mismatch:
+current: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.25.0', 'ipywidgets': '8.1.3', 'tqdm': '4.66.4', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.4', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.4.0', 'numba': '0.60.0', 'requests': '2.32.3', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.23.0', 'ipywidgets': '8.1.2', 'tqdm': '4.66.2', 'numpy': '1.26.3', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '1.1.3', 'imblearn': '0.12.2', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.1', 'requests': '2.31.0', 'matplotlib': '3.8.4', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.21.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+
+
+2024-06-20 23:10:03,746:INFO:Initializing predict_model()
+2024-06-20 23:10:03,747:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x00000218549AFD50>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Latitud', 'Longitud',
+                                             'Positivo alcohol',
+                                             'Positivo droga'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Expediente', 'Fecha',
+                                             'Día semana', 'Tipo día'...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Expediente', 'Fecha', 'Hora',
+                                             'Calle'],
+                                    transformer=TargetEncoder(cols=['Expediente',
+                                                                    'Fecha',
+                                                                    'Hora',
+                                                                    'Calle'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('actual_estimator',
+                 KNeighborsClassifier(n_jobs=-1, n_neighbors=19,
+                                      weights='distance'))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x000002183B1D37E0>)
+2024-06-20 23:10:03,747:INFO:Checking exceptions
+2024-06-20 23:10:03,747:INFO:Preloading libraries
+2024-06-20 23:10:03,747:INFO:Set up data.
+2024-06-20 23:10:03,758:INFO:Set up index.
+2024-06-20 23:10:15,930:INFO:Initializing load_model()
+2024-06-20 23:10:15,930:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:10:18,830:INFO:Initializing load_model()
+2024-06-20 23:10:18,830:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:10:19,808:INFO:Initializing load_model()
+2024-06-20 23:10:19,809:INFO:load_model(model_name=modelos/modelo_lesividad, platform=None, authentication=None, verbose=True)
+2024-06-20 23:10:19,965:WARNING:c:\Cursos\BootCampData\31_ProyectoFinal\.venv\Lib\site-packages\pycaret\internal\pipeline.py:148: UserWarning:
+
+Version mismatch:
+current: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.25.0', 'ipywidgets': '8.1.3', 'tqdm': '4.66.4', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.4', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.4.0', 'numba': '0.60.0', 'requests': '2.32.3', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.23.0', 'ipywidgets': '8.1.2', 'tqdm': '4.66.2', 'numpy': '1.26.3', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '1.1.3', 'imblearn': '0.12.2', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.1', 'requests': '2.31.0', 'matplotlib': '3.8.4', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.21.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+
+
+2024-06-20 23:10:20,022:INFO:Initializing predict_model()
+2024-06-20 23:10:20,022:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x00000218537E3510>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Latitud', 'Longitud',
+                                             'Positivo alcohol',
+                                             'Positivo droga'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Expediente', 'Fecha',
+                                             'Día semana', 'Tipo día'...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Expediente', 'Fecha', 'Hora',
+                                             'Calle'],
+                                    transformer=TargetEncoder(cols=['Expediente',
+                                                                    'Fecha',
+                                                                    'Hora',
+                                                                    'Calle'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('actual_estimator',
+                 KNeighborsClassifier(n_jobs=-1, n_neighbors=19,
+                                      weights='distance'))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x0000021852033C40>)
+2024-06-20 23:10:20,022:INFO:Checking exceptions
+2024-06-20 23:10:20,022:INFO:Preloading libraries
+2024-06-20 23:10:20,022:INFO:Set up data.
+2024-06-20 23:10:20,032:INFO:Set up index.
+2024-06-20 23:13:22,217:INFO:Initializing load_model()
+2024-06-20 23:13:22,217:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:13:23,365:INFO:Initializing load_model()
+2024-06-20 23:13:23,365:INFO:load_model(model_name=modelos/modelo_lesividad, platform=None, authentication=None, verbose=True)
+2024-06-20 23:13:23,577:WARNING:c:\Cursos\BootCampData\31_ProyectoFinal\.venv\Lib\site-packages\pycaret\internal\pipeline.py:148: UserWarning:
+
+Version mismatch:
+current: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.25.0', 'ipywidgets': '8.1.3', 'tqdm': '4.66.4', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.4', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.4.0', 'numba': '0.60.0', 'requests': '2.32.3', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.23.0', 'ipywidgets': '8.1.2', 'tqdm': '4.66.2', 'numpy': '1.26.3', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '1.1.3', 'imblearn': '0.12.2', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.1', 'requests': '2.31.0', 'matplotlib': '3.8.4', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.21.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+
+
+2024-06-20 23:13:23,640:INFO:Initializing predict_model()
+2024-06-20 23:13:23,640:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x000002185C65A4D0>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Latitud', 'Longitud',
+                                             'Positivo alcohol',
+                                             'Positivo droga'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Expediente', 'Fecha',
+                                             'Día semana', 'Tipo día'...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Expediente', 'Fecha', 'Hora',
+                                             'Calle'],
+                                    transformer=TargetEncoder(cols=['Expediente',
+                                                                    'Fecha',
+                                                                    'Hora',
+                                                                    'Calle'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('actual_estimator',
+                 KNeighborsClassifier(n_jobs=-1, n_neighbors=19,
+                                      weights='distance'))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x000002183C8F8A40>)
+2024-06-20 23:13:23,641:INFO:Checking exceptions
+2024-06-20 23:13:23,641:INFO:Preloading libraries
+2024-06-20 23:13:23,641:INFO:Set up data.
+2024-06-20 23:13:47,701:INFO:Initializing load_model()
+2024-06-20 23:13:47,701:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:13:48,759:INFO:Initializing load_model()
+2024-06-20 23:13:48,759:INFO:load_model(model_name=modelos/modelo_lesividad, platform=None, authentication=None, verbose=True)
+2024-06-20 23:13:48,929:WARNING:c:\Cursos\BootCampData\31_ProyectoFinal\.venv\Lib\site-packages\pycaret\internal\pipeline.py:148: UserWarning:
+
+Version mismatch:
+current: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.25.0', 'ipywidgets': '8.1.3', 'tqdm': '4.66.4', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.4', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.4.0', 'numba': '0.60.0', 'requests': '2.32.3', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.23.0', 'ipywidgets': '8.1.2', 'tqdm': '4.66.2', 'numpy': '1.26.3', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '1.1.3', 'imblearn': '0.12.2', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.1', 'requests': '2.31.0', 'matplotlib': '3.8.4', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.21.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+
+
+2024-06-20 23:13:48,991:INFO:Initializing predict_model()
+2024-06-20 23:13:48,991:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x0000021854CDB710>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Latitud', 'Longitud',
+                                             'Positivo alcohol',
+                                             'Positivo droga'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Expediente', 'Fecha',
+                                             'Día semana', 'Tipo día'...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Expediente', 'Fecha', 'Hora',
+                                             'Calle'],
+                                    transformer=TargetEncoder(cols=['Expediente',
+                                                                    'Fecha',
+                                                                    'Hora',
+                                                                    'Calle'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('actual_estimator',
+                 KNeighborsClassifier(n_jobs=-1, n_neighbors=19,
+                                      weights='distance'))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x000002185C63D440>)
+2024-06-20 23:13:48,991:INFO:Checking exceptions
+2024-06-20 23:13:48,992:INFO:Preloading libraries
+2024-06-20 23:13:48,992:INFO:Set up data.
+2024-06-20 23:18:44,277:INFO:Initializing load_model()
+2024-06-20 23:18:44,277:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:21:20,612:INFO:Initializing load_model()
+2024-06-20 23:21:20,612:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:25:08,899:INFO:Initializing load_model()
+2024-06-20 23:25:08,900:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:25:12,785:INFO:Initializing load_model()
+2024-06-20 23:25:12,785:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:25:13,759:INFO:Initializing load_model()
+2024-06-20 23:25:13,759:INFO:load_model(model_name=modelos/modelo_lesividad, platform=None, authentication=None, verbose=True)
+2024-06-20 23:25:13,947:WARNING:c:\Cursos\BootCampData\31_ProyectoFinal\.venv\Lib\site-packages\pycaret\internal\pipeline.py:148: UserWarning:
+
+Version mismatch:
+current: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.25.0', 'ipywidgets': '8.1.3', 'tqdm': '4.66.4', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.4', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.4.0', 'numba': '0.60.0', 'requests': '2.32.3', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.23.0', 'ipywidgets': '8.1.2', 'tqdm': '4.66.2', 'numpy': '1.26.3', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '1.1.3', 'imblearn': '0.12.2', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.1', 'requests': '2.31.0', 'matplotlib': '3.8.4', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.21.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+
+
+2024-06-20 23:25:14,000:INFO:Initializing predict_model()
+2024-06-20 23:25:14,000:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x000002185444D410>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Latitud', 'Longitud',
+                                             'Positivo alcohol',
+                                             'Positivo droga'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Expediente', 'Fecha',
+                                             'Día semana', 'Tipo día'...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Expediente', 'Fecha', 'Hora',
+                                             'Calle'],
+                                    transformer=TargetEncoder(cols=['Expediente',
+                                                                    'Fecha',
+                                                                    'Hora',
+                                                                    'Calle'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('actual_estimator',
+                 KNeighborsClassifier(n_jobs=-1, n_neighbors=19,
+                                      weights='distance'))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x000002185C4825C0>)
+2024-06-20 23:25:14,001:INFO:Checking exceptions
+2024-06-20 23:25:14,001:INFO:Preloading libraries
+2024-06-20 23:25:14,001:INFO:Set up data.
+2024-06-20 23:25:14,012:INFO:Set up index.
+2024-06-20 23:25:25,078:INFO:Initializing load_model()
+2024-06-20 23:25:25,079:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:25:29,250:INFO:Initializing load_model()
+2024-06-20 23:25:29,250:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:25:30,280:INFO:Initializing load_model()
+2024-06-20 23:25:30,280:INFO:load_model(model_name=modelos/modelo_lesividad, platform=None, authentication=None, verbose=True)
+2024-06-20 23:25:30,466:WARNING:c:\Cursos\BootCampData\31_ProyectoFinal\.venv\Lib\site-packages\pycaret\internal\pipeline.py:148: UserWarning:
+
+Version mismatch:
+current: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.25.0', 'ipywidgets': '8.1.3', 'tqdm': '4.66.4', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.4', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.4.0', 'numba': '0.60.0', 'requests': '2.32.3', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.23.0', 'ipywidgets': '8.1.2', 'tqdm': '4.66.2', 'numpy': '1.26.3', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '1.1.3', 'imblearn': '0.12.2', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.1', 'requests': '2.31.0', 'matplotlib': '3.8.4', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.21.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+
+
+2024-06-20 23:25:30,527:INFO:Initializing predict_model()
+2024-06-20 23:25:30,527:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x00000218538C5610>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Latitud', 'Longitud',
+                                             'Positivo alcohol',
+                                             'Positivo droga'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Expediente', 'Fecha',
+                                             'Día semana', 'Tipo día'...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Expediente', 'Fecha', 'Hora',
+                                             'Calle'],
+                                    transformer=TargetEncoder(cols=['Expediente',
+                                                                    'Fecha',
+                                                                    'Hora',
+                                                                    'Calle'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('actual_estimator',
+                 KNeighborsClassifier(n_jobs=-1, n_neighbors=19,
+                                      weights='distance'))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x000002185C483E20>)
+2024-06-20 23:25:30,527:INFO:Checking exceptions
+2024-06-20 23:25:30,527:INFO:Preloading libraries
+2024-06-20 23:25:30,528:INFO:Set up data.
+2024-06-20 23:25:30,538:INFO:Set up index.
+2024-06-20 23:32:37,457:INFO:Initializing load_model()
+2024-06-20 23:32:37,457:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:32:41,002:INFO:Initializing load_model()
+2024-06-20 23:32:41,002:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:32:41,987:INFO:Initializing load_model()
+2024-06-20 23:32:41,988:INFO:load_model(model_name=modelos/modelo_lesividad, platform=None, authentication=None, verbose=True)
+2024-06-20 23:32:42,170:WARNING:c:\Cursos\BootCampData\31_ProyectoFinal\.venv\Lib\site-packages\pycaret\internal\pipeline.py:148: UserWarning:
+
+Version mismatch:
+current: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.25.0', 'ipywidgets': '8.1.3', 'tqdm': '4.66.4', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.4', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.4.0', 'numba': '0.60.0', 'requests': '2.32.3', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.23.0', 'ipywidgets': '8.1.2', 'tqdm': '4.66.2', 'numpy': '1.26.3', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '1.1.3', 'imblearn': '0.12.2', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.1', 'requests': '2.31.0', 'matplotlib': '3.8.4', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.21.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+
+
+2024-06-20 23:32:42,237:INFO:Initializing predict_model()
+2024-06-20 23:32:42,237:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x00000218548825D0>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Latitud', 'Longitud',
+                                             'Positivo alcohol',
+                                             'Positivo droga'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Expediente', 'Fecha',
+                                             'Día semana', 'Tipo día'...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Expediente', 'Fecha', 'Hora',
+                                             'Calle'],
+                                    transformer=TargetEncoder(cols=['Expediente',
+                                                                    'Fecha',
+                                                                    'Hora',
+                                                                    'Calle'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('actual_estimator',
+                 KNeighborsClassifier(n_jobs=-1, n_neighbors=19,
+                                      weights='distance'))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x000002185C63D440>)
+2024-06-20 23:32:42,237:INFO:Checking exceptions
+2024-06-20 23:32:42,237:INFO:Preloading libraries
+2024-06-20 23:32:42,237:INFO:Set up data.
+2024-06-20 23:32:42,248:INFO:Set up index.
+2024-06-20 23:33:28,781:INFO:Initializing load_model()
+2024-06-20 23:33:28,782:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:33:42,759:INFO:Initializing load_model()
+2024-06-20 23:33:42,759:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:33:43,786:INFO:Initializing load_model()
+2024-06-20 23:33:43,787:INFO:load_model(model_name=modelos/modelo_lesividad, platform=None, authentication=None, verbose=True)
+2024-06-20 23:33:44,015:WARNING:c:\Cursos\BootCampData\31_ProyectoFinal\.venv\Lib\site-packages\pycaret\internal\pipeline.py:148: UserWarning:
+
+Version mismatch:
+current: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.25.0', 'ipywidgets': '8.1.3', 'tqdm': '4.66.4', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.4', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.4.0', 'numba': '0.60.0', 'requests': '2.32.3', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.23.0', 'ipywidgets': '8.1.2', 'tqdm': '4.66.2', 'numpy': '1.26.3', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '1.1.3', 'imblearn': '0.12.2', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.1', 'requests': '2.31.0', 'matplotlib': '3.8.4', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.21.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+
+
+2024-06-20 23:33:44,080:INFO:Initializing predict_model()
+2024-06-20 23:33:44,080:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x0000021855CC9510>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Latitud', 'Longitud',
+                                             'Positivo alcohol',
+                                             'Positivo droga'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Expediente', 'Fecha',
+                                             'Día semana', 'Tipo día'...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Expediente', 'Fecha', 'Hora',
+                                             'Calle'],
+                                    transformer=TargetEncoder(cols=['Expediente',
+                                                                    'Fecha',
+                                                                    'Hora',
+                                                                    'Calle'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('actual_estimator',
+                 KNeighborsClassifier(n_jobs=-1, n_neighbors=19,
+                                      weights='distance'))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x00000218583C18A0>)
+2024-06-20 23:33:44,080:INFO:Checking exceptions
+2024-06-20 23:33:44,080:INFO:Preloading libraries
+2024-06-20 23:33:44,080:INFO:Set up data.
+2024-06-20 23:33:44,093:INFO:Set up index.
+2024-06-20 23:34:03,609:INFO:Initializing load_model()
+2024-06-20 23:34:03,609:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:34:06,394:INFO:Initializing load_model()
+2024-06-20 23:34:06,394:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:34:07,423:INFO:Initializing load_model()
+2024-06-20 23:34:07,424:INFO:load_model(model_name=modelos/modelo_lesividad, platform=None, authentication=None, verbose=True)
+2024-06-20 23:34:07,594:WARNING:c:\Cursos\BootCampData\31_ProyectoFinal\.venv\Lib\site-packages\pycaret\internal\pipeline.py:148: UserWarning:
+
+Version mismatch:
+current: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.25.0', 'ipywidgets': '8.1.3', 'tqdm': '4.66.4', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.4', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.4.0', 'numba': '0.60.0', 'requests': '2.32.3', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.23.0', 'ipywidgets': '8.1.2', 'tqdm': '4.66.2', 'numpy': '1.26.3', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '1.1.3', 'imblearn': '0.12.2', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.1', 'requests': '2.31.0', 'matplotlib': '3.8.4', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.21.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+
+
+2024-06-20 23:34:07,651:INFO:Initializing predict_model()
+2024-06-20 23:34:07,651:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x0000021853FD7A10>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Latitud', 'Longitud',
+                                             'Positivo alcohol',
+                                             'Positivo droga'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Expediente', 'Fecha',
+                                             'Día semana', 'Tipo día'...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Expediente', 'Fecha', 'Hora',
+                                             'Calle'],
+                                    transformer=TargetEncoder(cols=['Expediente',
+                                                                    'Fecha',
+                                                                    'Hora',
+                                                                    'Calle'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('actual_estimator',
+                 KNeighborsClassifier(n_jobs=-1, n_neighbors=19,
+                                      weights='distance'))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x0000021854A66020>)
+2024-06-20 23:34:07,651:INFO:Checking exceptions
+2024-06-20 23:34:07,651:INFO:Preloading libraries
+2024-06-20 23:34:07,651:INFO:Set up data.
+2024-06-20 23:34:07,663:INFO:Set up index.
+2024-06-20 23:38:01,386:INFO:Initializing load_model()
+2024-06-20 23:38:01,386:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:38:03,885:INFO:Initializing load_model()
+2024-06-20 23:38:03,886:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:38:04,898:INFO:Initializing load_model()
+2024-06-20 23:38:04,898:INFO:load_model(model_name=modelos/modelo_lesividad, platform=None, authentication=None, verbose=True)
+2024-06-20 23:38:05,075:WARNING:c:\Cursos\BootCampData\31_ProyectoFinal\.venv\Lib\site-packages\pycaret\internal\pipeline.py:148: UserWarning:
+
+Version mismatch:
+current: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.25.0', 'ipywidgets': '8.1.3', 'tqdm': '4.66.4', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.4', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.4.0', 'numba': '0.60.0', 'requests': '2.32.3', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.23.0', 'ipywidgets': '8.1.2', 'tqdm': '4.66.2', 'numpy': '1.26.3', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '1.1.3', 'imblearn': '0.12.2', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.1', 'requests': '2.31.0', 'matplotlib': '3.8.4', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.21.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+
+
+2024-06-20 23:38:05,132:INFO:Initializing predict_model()
+2024-06-20 23:38:05,132:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x00000218294BA5D0>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Latitud', 'Longitud',
+                                             'Positivo alcohol',
+                                             'Positivo droga'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Expediente', 'Fecha',
+                                             'Día semana', 'Tipo día'...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Expediente', 'Fecha', 'Hora',
+                                             'Calle'],
+                                    transformer=TargetEncoder(cols=['Expediente',
+                                                                    'Fecha',
+                                                                    'Hora',
+                                                                    'Calle'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('actual_estimator',
+                 KNeighborsClassifier(n_jobs=-1, n_neighbors=19,
+                                      weights='distance'))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x000002182A7BB920>)
+2024-06-20 23:38:05,132:INFO:Checking exceptions
+2024-06-20 23:38:05,133:INFO:Preloading libraries
+2024-06-20 23:38:05,133:INFO:Set up data.
+2024-06-20 23:38:05,143:INFO:Set up index.
+2024-06-20 23:39:06,681:INFO:Initializing load_model()
+2024-06-20 23:39:06,681:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:39:09,430:INFO:Initializing load_model()
+2024-06-20 23:39:09,431:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:39:10,451:INFO:Initializing load_model()
+2024-06-20 23:39:10,451:INFO:load_model(model_name=modelos/modelo_lesividad, platform=None, authentication=None, verbose=True)
+2024-06-20 23:39:10,618:WARNING:c:\Cursos\BootCampData\31_ProyectoFinal\.venv\Lib\site-packages\pycaret\internal\pipeline.py:148: UserWarning:
+
+Version mismatch:
+current: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.25.0', 'ipywidgets': '8.1.3', 'tqdm': '4.66.4', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.4', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.4.0', 'numba': '0.60.0', 'requests': '2.32.3', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.23.0', 'ipywidgets': '8.1.2', 'tqdm': '4.66.2', 'numpy': '1.26.3', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '1.1.3', 'imblearn': '0.12.2', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.1', 'requests': '2.31.0', 'matplotlib': '3.8.4', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.21.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+
+
+2024-06-20 23:39:10,685:INFO:Initializing predict_model()
+2024-06-20 23:39:10,685:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x000002182AA6F9D0>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Latitud', 'Longitud',
+                                             'Positivo alcohol',
+                                             'Positivo droga'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Expediente', 'Fecha',
+                                             'Día semana', 'Tipo día'...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Expediente', 'Fecha', 'Hora',
+                                             'Calle'],
+                                    transformer=TargetEncoder(cols=['Expediente',
+                                                                    'Fecha',
+                                                                    'Hora',
+                                                                    'Calle'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('actual_estimator',
+                 KNeighborsClassifier(n_jobs=-1, n_neighbors=19,
+                                      weights='distance'))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x0000021855E299E0>)
+2024-06-20 23:39:10,685:INFO:Checking exceptions
+2024-06-20 23:39:10,685:INFO:Preloading libraries
+2024-06-20 23:39:10,686:INFO:Set up data.
+2024-06-20 23:39:10,695:INFO:Set up index.
+2024-06-20 23:45:31,030:INFO:Initializing load_model()
+2024-06-20 23:45:31,031:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:45:34,244:INFO:Initializing load_model()
+2024-06-20 23:45:34,244:INFO:load_model(model_name=modelos/exp_smooth_model, platform=None, authentication=None, verbose=True)
+2024-06-20 23:45:35,238:INFO:Initializing load_model()
+2024-06-20 23:45:35,239:INFO:load_model(model_name=modelos/modelo_lesividad, platform=None, authentication=None, verbose=True)
+2024-06-20 23:45:35,412:WARNING:c:\Cursos\BootCampData\31_ProyectoFinal\.venv\Lib\site-packages\pycaret\internal\pipeline.py:148: UserWarning:
+
+Version mismatch:
+current: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.25.0', 'ipywidgets': '8.1.3', 'tqdm': '4.66.4', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.4', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.4.0', 'numba': '0.60.0', 'requests': '2.32.3', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+pickle: {'deps_info': {'pip': '24.0', 'setuptools': '65.5.0', 'pycaret': '3.3.2', 'IPython': '8.23.0', 'ipywidgets': '8.1.2', 'tqdm': '4.66.2', 'numpy': '1.26.3', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '1.1.3', 'imblearn': '0.12.2', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.1', 'requests': '2.31.0', 'matplotlib': '3.8.4', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.21.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.2', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.8', 'markupsafe': '2.1.5', 'pickle5': 'Not installed', 'cloudpickle': '3.0.0', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': 'Not installed'}, 'python': {'version': '3.11.9', 'machine': 'AMD64'}}
+
+
+2024-06-20 23:45:35,467:INFO:Initializing predict_model()
+2024-06-20 23:45:35,467:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x000002185C647FD0>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Latitud', 'Longitud',
+                                             'Positivo alcohol',
+                                             'Positivo droga'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Expediente', 'Fecha',
+                                             'Día semana', 'Tipo día'...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Expediente', 'Fecha', 'Hora',
+                                             'Calle'],
+                                    transformer=TargetEncoder(cols=['Expediente',
+                                                                    'Fecha',
+                                                                    'Hora',
+                                                                    'Calle'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('actual_estimator',
+                 KNeighborsClassifier(n_jobs=-1, n_neighbors=19,
+                                      weights='distance'))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x0000021855E28540>)
+2024-06-20 23:45:35,468:INFO:Checking exceptions
+2024-06-20 23:45:35,468:INFO:Preloading libraries
+2024-06-20 23:45:35,468:INFO:Set up data.
+2024-06-20 23:45:35,478:INFO:Set up index.
