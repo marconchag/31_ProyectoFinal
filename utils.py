@@ -20,7 +20,7 @@ def menu():
     st.sidebar.page_link("pages/implicados.py", label="Implicados")
     st.sidebar.page_link("pages/accidentes.py", label="Accidentes")
     #!Dejamos comentado el enlace a la página de predicciones hasta que tengamos los puntos de conexión de Azure
-    #st.sidebar.page_link("pages/predicciones.py", label="Predicción")
+    st.sidebar.page_link("pages/predicciones.py", label="Predicción")
     st.sidebar.markdown("""
     ---
     """)
