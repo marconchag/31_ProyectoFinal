@@ -80,7 +80,7 @@ if 'df' in st.session_state :
         edad_order = ['0-17', '18-29', '30-39', '40-49', '50-59', '60-64', '65-69', '70-74', '+74']
         #? -------------------- Gráfico distribución por lesividad y grupo edad ----------------------------#
         # Agrupar por tipo de lesividad y grupo de edad y contar las ocurrencias
-        total_por_Lesividad_y_edad = df[df['Lesividad'].isin(['Grave', 'Fallecido'])].groupby(['Lesividad', 'Edad']).size().reset_index(name='cantidad')
+        total_por_Lesividad_y_edad = df.groupby(['Lesividad', 'Edad']).size().reset_index(name='cantidad')
 
 
         # Crear gráfico de barras apiladas
