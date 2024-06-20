@@ -1,8 +1,10 @@
 # Proyecto Final - Análisis de Accidentes de Tráfico en Madrid
 
 ![Banner](./img/ComMadrid.png)
-
----
+## Integrantes:
+- Irene Bañon
+- Lya Fiol
+- Mar García
 
 ## Descripción
 
@@ -25,12 +27,16 @@ Este proyecto tiene como objetivo analizar los accidentes de tráfico en Madrid 
     
 - **Paginas**
   - `pages`: Contiene las páginas en nuestra aplicación Streamlit.
-  - 
+    
+ - **Imágenes*
+  - `img`: Contiene las imágenes utilizadas.
+    
 - **Aplicación**
   - `app.py`: Aplicación Streamlit para interactuar con los datos y modelos.
   - `estilos.py`: Estilos personalizados para la aplicación.
   - `utils.py`: Funciones utilitarias.
   - `app.py`: Aplicación Streamlit para interactuar con los datos y modelos.
+  
     
 ## Fuente de datos
   -  https://accidentesmadrid.streamlit.app/ Nuestra app de Streamlit.
