@@ -204,9 +204,9 @@ if 'df' in st.session_state :
                     st.write()
                 with pycarte:
                     prediction = lesividad_pycaret(input_data) # Realizar la predicción
-                    st.write(f'Lesividad predicha por Pycaret es {prediction}')
+                    st.write(f'Lesividad predicha por Pycaret es: {prediction}')
                 with azure:
                     prediction = lesividad_azure(input_data) # Realizar la predicción
-                    st.write(f'Lesividad predicha por Azure es {prediction}')
+                    st.write(f'Lesividad predicha por Azure es: {prediction}')
 
 
