@@ -3,4 +3,4 @@
 __pycache__/
 00_ProcesamientoDatos_completo.ipynb
 modelos/modelo_lesividad.pkl
-logs.log
+logs*
