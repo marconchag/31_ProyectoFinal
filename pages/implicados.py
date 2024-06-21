@@ -167,11 +167,19 @@ if 'df' in st.session_state :
         # Agrupar por tipo de lesividad y tipo de persona y contar las ocurrencias
         fallecidos_tpPersona = df_fallecidos.groupby(['Implicado']).size().reset_index(name='cantidad')
         fallecidos_Sexo = df_fallecidos.groupby(['Sexo']).size().reset_index(name='cantidad')
+        fallecidos_tpDia = df_fallecidos.groupby(['Tipo día']).size().reset_index(name='cantidad')
+
+        # Agrupar por tipo de accidentes
+        fallecidos_tpAccidente_counts = df_fallecidos['Tipo accidente'].value_counts()
+        # Calcular el porcentaje de cada tipo de accidente
+        total_fallecidos = fallecidos_tpAccidente_counts.sum()
+        tipo_accidente_porcentaje = (fallecidos_tpAccidente_counts / total_fallecidos) * 100
+
         
         # Usar una paleta de colores predefinida de Plotly
         paleta_colores = px.colors.sequential.Viridis
         
-        fig = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
+        fig = make_subplots(rows=1, cols=3, specs=[[{'type': 'domain'}, {'type': 'domain'},{'type': 'domain'}]])
 
         fig.add_trace(go.Pie(labels=fallecidos_tpPersona['Implicado'].values,
                             values=fallecidos_tpPersona['cantidad'].values,
@@ -180,15 +188,41 @@ if 'df' in st.session_state :
 
         fig.add_trace(go.Pie(labels=fallecidos_Sexo['Sexo'].values,
                             values=fallecidos_Sexo['cantidad'].values,
-                            name='', textinfo='label+percent', showlegend=False, hole=.3,
+                            name='', textinfo='label+percent+value', showlegend=False, hole=.3,
                             marker=dict(colors=paleta_colores)), 1, 2)
+        fig.add_trace(go.Pie(labels=fallecidos_tpDia['Tipo día'].values,
+                            values=fallecidos_tpDia['cantidad'].values,
+                            name='', textinfo='label+percent+value', showlegend=False, hole=.3,
+                            marker=dict(colors=paleta_colores)), 1, 3)
         # Diseño del gráfico
         fig.update_layout(
-            title_text="Fallecidos en accidentes por Implicado y Sexo",
+            title_text=f'Total Fallecidos en accidentes de tráfico {total_fallecidos}',
             legend=dict(font=dict(size=14)) # Tamaño de la fuente de la leyenda
         )
 
         # Mostrar la figura en Streamlit
+        st.plotly_chart(fig, use_container_width=True)
+
+        #? -------------------- Gráfico Barras : Fallecido por Tipo Accidente ----------------------------#
+
+        # Crear el gráfico de barras horizontales
+        fig = px.bar(x=fallecidos_tpAccidente_counts.values, 
+                y=fallecidos_tpAccidente_counts.index, 
+                orientation='h', 
+                text=[f'<b>{accidentes:,}'.replace(',', '.') + f'<br> ({porcentaje:.2f}%)</b>' for accidentes, porcentaje in zip(fallecidos_tpAccidente_counts.values, tipo_accidente_porcentaje)],
+                # title=f'Distribución fallecidos por Tipo de Accidente',
+                labels={'index': 'Tipo de Accidente', 'Tipo accidente': 'Número de Fallecidos'},
+                color=fallecidos_tpAccidente_counts.values,
+                color_continuous_scale=px.colors.sequential.Viridis)
+
+        # Actualizar el diseño del gráfico
+        fig.update_layout(xaxis_title='Número de Fallecidos',
+                    yaxis_title='Tipo de Accidente',
+                    yaxis={'categoryorder': 'total ascending'})
+        # Desactivar la barra de colores continua
+        fig.update_coloraxes(showscale=False)
+
+        # Mostrar el gráfico
         st.plotly_chart(fig, use_container_width=True)
     with positivos:
         #? ---------------- Mapa de Calor : Implicados positivos en Alcohol y Drogas  ------------------#
